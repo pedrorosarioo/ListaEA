@@ -3,10 +3,14 @@
 
 int main(){
 int cont=0;
-char a;
-FILE *handler;
-	handler = fopen("Arq_Q1.txt", "r");
-	if (handler==NULL) exit(1);
+char a, arquivo[100];
+FILE *handler=NULL;
+	scanf("%[^\n]s", arquivo);
+	handler = fopen(arquivo, "r");
+	if (handler==NULL){
+		printf("Arquivo Inexistente");
+		return 0;
+	}
 
 	a=fgetc(handler);
     if (a!=EOF) cont++;
