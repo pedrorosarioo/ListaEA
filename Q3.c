@@ -3,11 +3,29 @@
 
 int main(){
 int cont=0;
-char a;
+char a, arquivo[100], arquivo2[100], arquivo3[100];
 FILE *handler, *handler2, *handler3;
-	handler = fopen("Arq_Q1.txt", "r");
-	handler2 = fopen("Complemento_Q3.txt", "r");
-	handler3 = fopen("Arq_Q3.txt", "a");
+
+	scanf("%[^\n]s", arquivo);
+	handler = fopen(arquivo, "r");
+	if (handler==NULL){
+		printf("Arquivo Inexistente");
+		return 0;
+	}
+	
+	scanf(" %[^\n]s", arquivo2);
+	handler2 = fopen(arquivo2, "r");
+	if (handler==NULL){
+		printf("Arquivo Inexistente");
+		return 0;
+	}
+	
+	scanf(" %[^\n]s", arquivo3);
+	handler3 = fopen(arquivo3, "a");
+	if (handler==NULL){
+		printf("Arquivo Inexistente");
+		return 0;
+	}
 	
 	a=fgetc(handler);
 	while(a!=EOF){
@@ -22,5 +40,6 @@ FILE *handler, *handler2, *handler3;
 		a=fgetc(handler2);
 	}
 	fclose(handler2);
+	fclose(handler3);
 return 0;
 }
